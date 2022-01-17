@@ -1,7 +1,7 @@
 // Creates a variable for the button in the html
 const btn = document.getElementById('generate');
 
-// Creates a variable for the password display array in the html
+// Creates a variable for the password display area in the html
 const passwordDisplay = document.getElementById('password');
 
 // Declares variables for each parameter as the arrays for each set of ascii characters (see function on line 56)
@@ -10,7 +10,7 @@ const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122);
 const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57);
 const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(arrayFromLowToHigh(58, 64)).concat(arrayFromLowToHigh(91, 96)).concat(arrayFromLowToHigh(123, 126));
 
-// This event listener creates the parameter prompts for the password
+// This event listener creates the parameter prompts for the password when the button is pressed
 btn.addEventListener('click', e => {
     const passwordLength = window.prompt('How long would you like your password to be? Choose a number between 8 and 128.');
     console.log(passwordLength);
@@ -27,7 +27,7 @@ btn.addEventListener('click', e => {
     // Declares the password variable as the generatePassword function and passes in the parameters from above
     const password = generatePassword(passwordLength, passwordCase, passwordNumb, passwordSymbol);
 
-    // Displays the password on the page
+    // Displays the password in the password display area in the html
     passwordDisplay.innerText = password;
 });
 
@@ -41,14 +41,14 @@ function generatePassword(passwordLength, passwordCase, passwordNumb, passwordSy
     if (passwordNumb) charCodes = charCodes.concat(NUMBER_CHAR_CODES);
     if (passwordSymbol) charCodes = charCodes.concat(SYMBOL_CHAR_CODES);
 
-    // Chooses the characters from above at random pushes them to the empty array passwordCharacters  
+    // Chooses the characters from above at random and pushes them to the empty array passwordCharacters  
     const passwordCharacters = [];
     for (let i = 0; i < passwordLength; i++) {
         const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)];
         passwordCharacters.push(String.fromCharCode(characterCode));
     }
 
-    // Turns passwordCharacters into a string
+    // Turns the passwordCharacters array into a string
     return passwordCharacters.join('');
 }
 
