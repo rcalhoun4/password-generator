@@ -1,6 +1,7 @@
 # Password Generator
----
+
 I created a random password generator that asks the user how long they want their password to be, and whether they want to include uppercase letters, numbers, and special characters. To do this I:
+
 1) Cloned the starter code that was provided which had the HTML and CSS files setup already but the JavaScript file was not filled out
 2) Created variables in JS for the Generate Password button and the Password Display Area
 3) Created variables for the uppercase, number, and symbol ascii character codes that use the function arrayFromLowToHigh which takes the lowest and highest value for each set of character codes and creates arrays for the values inbetween
